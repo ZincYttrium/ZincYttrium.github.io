@@ -1,18 +1,41 @@
 <html>
 
 	<head>
-		<title>Hello World</title>
+		<title>ZincYttrium</title>
+
 	</head>
 
 	<body align="center">
 
-		<h1>Hello World</h1>
-		<p>First web of mine.<br/>Hope you like it! </p>
-
+		<h1>welcome here!</h1>
 		<img src="1.jpeg" width="30%x" heigh="30%"/>
+
+		<!-- ask visitor's name -->
+		<form>
+		What's your name?<input type='text' id='name' name='name'/>
+		<input type='button' name='botton' onclick="submitted()" value='ready?'/>
+		</form>
+
+		<div id='response'></div>
+
+		<!-- response -->
 		<script>
-			var str="a test";
-			alert(str)
+			function submitted(){
+				var name = document.getElementById('name').value;
+				if (name!=''){
+					//alert('filled.')
+					//create response paragraph
+					var response_word= document.createTextNode('Hi,'+name+'! Nice to meet you here!');
+					var new_p = document.createElement('p');
+					new_p.appendChild(response_word);
+
+					//append
+					var responses  = document.getElementById('response');
+					responses.appendChild(new_p);
+				}else{
+					alert('tell me your name please~')
+				}
+			}
 		</script>
 
 	</body>
